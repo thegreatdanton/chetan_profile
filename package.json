@@ -3,7 +3,7 @@
   "private": false,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://thegreatdanton.github.io/chetan_profile/",
+  "homepage": "https://chetanpiduru.dev/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
