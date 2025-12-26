@@ -1,69 +1,36 @@
-# Deployment Guide: GitHub Pages
+# Deployment Guide: Cloudflare Pages
 
-This project is configured to be easily deployed to GitHub Pages using the `gh-pages` package.
+This project is configured to be deployed to **Cloudflare Pages**.
 
 ## Prerequisites
 
-1.  **Git Repository**: Ensure your project is initialized as a git repository and pushed to GitHub.
-    ```bash
-    git remote -v
-    # Verified: https://github.com/thegreatdanton/chetan_profile.git
-    ```
-2.  **Node.js**: Ensure you have Node.js installed.
+1.  **Git Repository**: Ensure your project is pushed to GitHub.
+2.  **Cloudflare Account**: [Sign up for Cloudflare](https://dash.cloudflare.com/sign-up).
 
-## Configuration & Common Pitfalls
+## Configuration
 
-### 1. `vite.config.js` Base Path
-> [!IMPORTANT]
-> The `base` property in `vite.config.js` MUST match your GitHub repository name.
->
-> *   Current Repo: `chetan_profile`
-> *   Recommended Base: `base: '/chetan_profile/'`
->
-> If you set this to `/thegreatdanton/` but your repo is `chetan_profile`, your site will not load correctly on GitHub Pages. Changes made to `vite.config.js` must align with `https://username.github.io/<REPO_NAME>/`.
-
-### 2. `package.json`
-*   `homepage`: `https://thegreatdanton.github.io/chetan_profile/`
-*   `scripts`: Includes `"deploy": "gh-pages -d dist"`
+*   **Build Command**: `npm run build`
+*   **Build Output Directory**: `dist`
+*   **Node.js Version**: 18+ (Default usually works)
 
 ## How to Deploy
 
-To publish your site, simply run the following command in your terminal:
+1.  **Push your code to GitHub.**
+2.  **Log in to the [Cloudflare Dashboard](https://dash.cloudflare.com/).**
+3.  Go to **Workers & Pages** > **Create application** > **Pages** > **Connect to Git**.
+4.  Select this repository (`chetan_profile`).
+5.  **Configure the build:**
+    *   **Framework preset**: Select `Vite`.
+    *   **Build command**: `npm run build`
+    *   **Build output directory**: `dist`
+6.  Click **Save and Deploy**.
 
-```bash
-npm run deploy
-```
+## Custom Domain Customization
 
-### What that command does:
-1.  **Builds** the app (`npm run build`).
-2.  **Pushes** the `dist` folder to the `gh-pages` branch on GitHub.
+1.  In Cloudflare Pages dashboard for your project, go to **Custom Domains**.
+2.  Click **Set up a custom domain**.
+3.  Enter your domain (e.g., `chetanpiduru.dev`) and follow the instructions to update your DNS records.
 
-## Accessing Your Site
+## SPA Routing
 
-After deployment:
-1.  Go to **GitHub Settings > Pages**.
-2.  Your site will be live at: `https://thegreatdanton.github.io/chetan_profile/`
-
-## Troubleshooting 404 Errors (Critical)
-
-If you still see a 404 error, please check the following:
-
-1.  **Check GitHub Actions Status**:
-    *   Go to your repository on GitHub.
-    *   Click the **Actions** tab.
-    *   Look for a workflow named **"pages-build-deployment"**.
-    *   If it has a ❌ Red X, click on it to see why it failed.
-    *   If it's running (🟡 Yellow), wait for it to finish.
-
-2.  **Verify Branch Source**:
-    *   Go to **Settings > Pages**.
-    *   Ensure **Source** is "Deploy from a branch".
-    *   Ensure **Branch** is `gh-pages` / `/ (root)`.
-    *   **Toggle it**: Sometimes toggling it to 'None', saving, and then back to 'gh-pages' fixes stuck deployments.
-
-3.  **Repository Visibility**:
-    *   If your repository is **Private**, you must have a GitHub Pro account to use GitHub Pages, OR ensure the Pages visibility is correctly set.
-    *   If you are on a free plan, the repository must be **Public**.
-
-4.  **Force Refresh**:
-    *   Sometimes your browser caches the 404. Open an **Incognito/Private** window to test the URL.
+A `public/_redirects` file is included in this project to ensure Client-Side Routing (SPA) works correctly on Cloudflare Pages.
