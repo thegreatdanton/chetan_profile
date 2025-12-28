@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Work from './pages/Work';
-import AppDetail from './pages/AppDetail';
-import PrivacyPolicy from './pages/PrivacyPolicy';
+import MoneySplitDetail from './pages/work/money-split/Detail';
+import MoneySplitPrivacy from './pages/work/money-split/Privacy';
 
 function App() {
   return (
@@ -21,8 +21,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/work" element={<Work />} />
-            <Route path="/work/:appId" element={<AppDetail />} />
-            <Route path="/work/:appId/privacy" element={<PrivacyPolicy />} />
+            <Route path="/work/money-split" element={<MoneySplitDetail />} />
+            <Route path="/work/money-split/privacy" element={<MoneySplitPrivacy />} />
           </Routes>
         </main>
       </div>

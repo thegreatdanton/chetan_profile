@@ -1,12 +1,11 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { projects } from '../data/projects';
+import { Link } from 'react-router-dom';
+import { projects } from '../../../data/projects';
 import { ArrowLeft } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const PrivacyPolicy = () => {
-    const { appId } = useParams();
-    const project = projects.find(p => p.id === appId);
+const Privacy = () => {
+    const project = projects.find(p => p.id === 'money-split');
 
     if (!project || !project.privacyPolicy) {
         return (
@@ -19,7 +18,7 @@ const PrivacyPolicy = () => {
 
     return (
         <div className="container-custom pt-10 pb-20">
-            <Link to={`/work/${appId}`} className="inline-flex items-center gap-2 text-secondary hover:text-white mb-8 text-sm group transition-colors">
+            <Link to={`/work/${project.id}`} className="inline-flex items-center gap-2 text-secondary hover:text-white mb-8 text-sm group transition-colors">
                 <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
                 Back to {project.title}
             </Link>
@@ -37,7 +36,7 @@ const PrivacyPolicy = () => {
                     {project.privacyPolicy.map((section, index) => (
                         <div key={index}>
                             <h2 className="text-xl font-semibold mb-3">{section.title}</h2>
-                            <p className="text-secondary leading-relaxed whitespace-pre-wrap">
+                            <p className="text-secondary leading-relaxed whitespace-pre-wrap text-sm">
                                 {section.content}
                             </p>
                         </div>
@@ -48,4 +47,4 @@ const PrivacyPolicy = () => {
     );
 };
 
-export default PrivacyPolicy;
+export default Privacy;

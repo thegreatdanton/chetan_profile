@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { projects } from '../data/projects';
-import { ArrowLeft, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { projects } from '../../../data/projects';
+import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const ScreenshotSlideshow = ({ images }) => {
@@ -10,7 +10,7 @@ const ScreenshotSlideshow = ({ images }) => {
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentIndex((prev) => (prev + 1) % images.length);
-        }, 3000); // Change every 3 seconds
+        }, 3000);
         return () => clearInterval(timer);
     }, [images.length]);
 
@@ -33,7 +33,6 @@ const ScreenshotSlideshow = ({ images }) => {
                     />
                 </AnimatePresence>
 
-                {/* Navigation Dots */}
                 <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
                     {images.map((_, idx) => (
                         <div
@@ -43,7 +42,6 @@ const ScreenshotSlideshow = ({ images }) => {
                     ))}
                 </div>
 
-                {/* Navigation Arrows */}
                 <button onClick={prevSlide} className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-black/50 rounded-full text-white/70 hover:text-white hover:bg-black/70 transition-all z-10">
                     <ChevronLeft size={20} />
                 </button>
@@ -56,9 +54,8 @@ const ScreenshotSlideshow = ({ images }) => {
 };
 
 
-const AppDetail = () => {
-    const { appId } = useParams();
-    const project = projects.find(p => p.id === appId);
+const Detail = () => {
+    const project = projects.find(p => p.id === 'money-split');
 
     if (!project) {
         return <div className="container-custom pt-20">Project not found.</div>;
@@ -99,9 +96,33 @@ const AppDetail = () => {
                         {project.description}
                     </p>
 
+                    {project.privacyFirst && (
+                        <div className="mb-12 md:mb-16">
+                            <h2 className="text-xl font-semibold mb-6 flex items-center justify-center gap-2">
+                                <span className="text-blue-400">🔒</span> Privacy First
+                            </h2>
+                            <div className="glass-panel p-6 rounded-2xl max-w-2xl mx-auto text-left">
+                                <p className="text-secondary mb-4 italic text-center text-sm">Your financial data is yours alone.</p>
+                                <ul className="space-y-3">
+                                    {project.privacyFirst.map((item, i) => (
+                                        <li key={i} className="flex items-start gap-3 text-secondary text-sm">
+                                            <span className="text-green-400 shrink-0 mt-1">✓</span>
+                                            <span>
+                                                <strong className="text-white">{item.split(':')[0]}:</strong>
+                                                {item.split(':')[1]}
+                                            </span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    )}
+
                     {project.features && (
                         <div className="mb-12 md:mb-16">
-                            <h2 className="text-xl font-semibold mb-6 md:mb-8">Key Features</h2>
+                            <h2 className="text-xl font-semibold mb-6 md:mb-8 flex items-center justify-center gap-2">
+                                <span className="text-yellow-400">🚀</span> Key Features
+                            </h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 text-left">
                                 {project.features.map((feature, i) => (
                                     <div key={i} className="glass-panel p-5 md:p-6 rounded-xl border-white/5 hover:bg-white/5 transition-colors">
@@ -122,29 +143,48 @@ const AppDetail = () => {
                         </div>
                     )}
 
-                    {project.whyChoose && (
-                        <div className="mb-12 md:mb-16">
-                            <h2 className="text-xl font-semibold mb-6">Why Choose MoneySplit?</h2>
-                            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-left mx-auto max-w-2xl px-4 md:px-0">
-                                {project.whyChoose.map((item, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-secondary">
-                                        <span className="text-green-400 shrink-0">✅</span> {item}
-                                    </li>
+                    {project.techStack && (
+                        <div className="mb-12 md:mb-16 text-left max-w-2xl mx-auto">
+                            <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
+                                <span className="text-orange-400">🛠️</span> Tech Stack
+                            </h2>
+                            <div className="grid grid-cols-1 gap-3">
+                                {project.techStack.map((tech, i) => (
+                                    <div key={i} className="flex justify-between items-center py-2 border-b border-white/5 text-sm">
+                                        <span className="text-secondary font-medium">{tech.label}</span>
+                                        <span className="text-white">{tech.value}</span>
+                                    </div>
                                 ))}
-                            </ul>
+                            </div>
                         </div>
                     )}
 
-                    {/* Placeholder for future detailed content */}
-                    <div className="flex justify-center gap-4">
-                        {/* <button className="glass-panel px-6 py-3 rounded-lg font-medium hover:bg-white/10 transition-colors flex items-center gap-2">
-                            Visit Website <ExternalLink size={16} />
-                        </button> */}
-                        {project.privacyPolicy && (
-                            <Link to={`/work/${project.id}/privacy`} className="px-8 py-4 rounded-full glass-panel font-medium text-secondary hover:text-white hover:bg-white/10 transition-all">
-                                Privacy Policy
-                            </Link>
-                        )}
+                    {project.developer && (
+                        <div className="mb-12 md:mb-16 text-left max-w-2xl mx-auto">
+                            <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
+                                <span className="text-purple-400">👨‍💻</span> Developer
+                            </h2>
+                            <div className="glass-panel p-6 rounded-2xl">
+                                <h3 className="text-lg font-bold mb-1">{project.developer.name}</h3>
+                                <p className="text-secondary text-sm mb-4">{project.developer.role}</p>
+                                <a href={`mailto:${project.developer.email}`} className="text-blue-400 hover:text-blue-300 text-sm flex items-center gap-2">
+                                    {project.developer.email}
+                                </a>
+                            </div>
+                        </div>
+                    )}
+
+                    <div className="mb-12 md:mb-16 text-left max-w-2xl mx-auto">
+                        <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
+                            <span className="text-gray-400">📄</span> Legal
+                        </h2>
+                        <div className="flex flex-wrap gap-4">
+                            {project.privacyPolicy && (
+                                <Link to={`/work/${project.id}/privacy`} className="px-6 py-3 rounded-xl glass-panel text-sm font-medium text-secondary hover:text-white hover:bg-white/10 transition-all">
+                                    Privacy Policy
+                                </Link>
+                            )}
+                        </div>
                     </div>
                 </div>
             </motion.div >
@@ -152,4 +192,4 @@ const AppDetail = () => {
     );
 };
 
-export default AppDetail;
+export default Detail;

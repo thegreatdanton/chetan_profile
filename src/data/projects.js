@@ -5,7 +5,7 @@ export const projects = [
         category: 'Mobile App',
         year: 'January 2026',
         shortDescription: 'Automatically track expenses from SMS and notifications. Secure and private.',
-        description: 'MoneySplit is the intelligent expense manager that works for you. By securely analyzing your transaction SMS and notifications on-device, it automatically tracks your spending, categorizes your expenses, and helps you stay on budget—all without your data ever leaving your phone.',
+        description: 'MoneySplit is an intelligent, offline-first personal finance application designed to automate your expense tracking while keeping your data 100% private. By analyzing your transaction SMS and notifications directly on your device, it gives you a clear picture of your finances without any manual entry or cloud syncing.',
         image: 'assets/moneysplit-banner.png',
         icon: 'assets/moneysplit-icon.png',
         screenshots: [
@@ -15,20 +15,33 @@ export const projects = [
             'assets/moneysplit-loans.jpg',
             'assets/moneysplit-settings.jpg'
         ],
+        privacyFirst: [
+            '100% Offline: No servers, no cloud uploads.',
+            'On-Device Processing: SMS and notification parsing happens locally.',
+            'Secure Storage: All data is encrypted using SQLCipher.'
+        ],
         features: [
-            { title: '🤖 AI-Powered Tracking', desc: 'Forget manual entry. MoneySplit automatically detects and records expenses from your bank SMS and transaction notifications in real-time.' },
-            { title: '🔒 Privacy First & Offline', desc: 'Your financial data is yours alone. MoneySplit works 100% offline and processes everything on your device. No cloud uploads, no data sharing, just secure local tracking.' },
-            { title: '📊 Smart Categorization', desc: 'Groceries, Travel, Utilities—MoneySplit instantly categorizes your transactions so you can see exactly where your money goes.' },
-            { title: '📅 Subscriptions & Loans', desc: 'Never miss a due date. Keep track of all your recurring subscriptions and personal loans in one place.' },
-            { title: '🎨 Beautiful & Modern', desc: 'Designed with the latest Material 3 guidelines, supporting dynamic colors that adapt to your device\'s wallpaper and extensive Dark Mode support.' }
+            { title: '🤖 Automated Tracking', desc: 'Instantly records expenses from bank SMS and transaction notifications.' },
+            { title: '📊 Insightful Analytics', desc: 'Interactive charts and graphs to visualize spending habits over time.' },
+            { title: '💰 Account Management', desc: 'Support for Bank Accounts, Cash, Wallets, and Credit Cards with limit and due date tracking.' },
+            { title: '🧠 AI-Powered Insights', desc: '(Optional) Connect your Gemini API key for personalized financial summaries and advice.' },
+            { title: '📅 Smart Reminders', desc: 'Track bill due dates, subscriptions, and get daily reminders to stay on top of your finances.' },
+            { title: '🔄 Unified backups', desc: 'One-tap backup and restore with automated folder management and cleanup.' },
+            { title: '🎨 Modern Design', desc: 'Built with Material 3, supporting Dynamic Colors and Dark Mode.' },
+            { title: '⚙️ Zero Friction', desc: 'No login required. Just install and start tracking.' }
         ],
-        whyChoose: [
-            'Zero ads',
-            'No login required',
-            'Secure local database',
-            'Automatic backup support',
-            'Lightweight & battery efficient'
+        techStack: [
+            { label: 'Framework', value: 'Flutter' },
+            { label: 'Language', value: 'Dart' },
+            { label: 'State Management', value: 'Riverpod' },
+            { label: 'Database', value: 'Drift (SQLite) with SQLCipher encryption' },
+            { label: 'AI Integration', value: 'Google Gemini API' }
         ],
+        developer: {
+            name: 'Chetan P',
+            role: 'Application Developer',
+            email: 'thegreatdanton93@gmail.com'
+        },
         privacyPolicy: [
             {
                 title: '1. Introduction',
@@ -61,3 +74,4 @@ export const projects = [
         ]
     }
 ];
+
