@@ -19,7 +19,7 @@ const Home = () => {
                     I'm <span className="text-gradient">Chetan Reddy Piduru.</span>
                 </h1>
 
-                <h2 className="text-xl md:text-2xl font-semibold text-white/90 mb-8 leading-relaxed max-w-2xl">
+                <h2 className="text-xl md:text-2xl font-semibold text-[var(--text-primary)] opacity-90 mb-8 leading-relaxed max-w-2xl">
                     Architecting Five 9s (99.999%) Availability for 1M TPS IAM Systems | Expert in Mission-Critical Authentication & Authorization
                 </h2>
 
@@ -29,11 +29,11 @@ const Home = () => {
                 </p>
 
                 <div className="flex items-center gap-6">
-                    <Link to="/work" className="group flex items-center gap-2 text-white font-medium hover:opacity-80 transition-opacity">
+                    <Link to="/work" className="group flex items-center gap-2 text-[var(--text-primary)] font-medium hover:opacity-70 transition-opacity bg-[var(--text-primary)]/5 px-6 py-3 rounded-full border border-[var(--subtle-border)]">
                         View My Work
                         <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                     </Link>
-                    <a href="mailto:chetanreddy193@gmail.com" className="text-secondary hover:text-white transition-colors">
+                    <a href="mailto:chetanreddy193@gmail.com" className="text-secondary hover:text-[var(--text-primary)] transition-colors border-b border-transparent hover:border-[var(--text-primary)]">
                         Get in touch
                     </a>
                 </div>

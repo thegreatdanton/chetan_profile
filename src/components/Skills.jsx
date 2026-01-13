@@ -91,7 +91,7 @@ const Skills = () => {
 
                 <button
                     onClick={() => setIsExpanded(!isExpanded)}
-                    className="flex items-center gap-2 text-secondary hover:text-white transition-colors text-sm font-medium border border-white/10 px-4 py-2 rounded-full glass-panel"
+                    className="flex items-center gap-2 text-secondary hover:text-[var(--text-primary)] transition-colors text-sm font-medium border border-[var(--subtle-border)] px-4 py-2 rounded-full glass-panel"
                 >
                     {isExpanded ? (
                         <>Show Less <ChevronUp size={16} /></>
@@ -113,9 +113,9 @@ const Skills = () => {
                     >
                         {visibleGroups.map((group, gIndex) => (
                             <div key={gIndex}>
-                                <h4 className="text-white/40 text-xs uppercase tracking-[0.2em] font-bold mb-6 flex items-center gap-4">
+                                <h4 className="text-[var(--text-secondary)] opacity-50 text-xs uppercase tracking-[0.2em] font-bold mb-6 flex items-center gap-4">
                                     {group.category}
-                                    <div className="h-[1px] flex-1 bg-white/5"></div>
+                                    <div className="h-[1px] flex-1 bg-[var(--subtle-bg)]"></div>
                                 </h4>
 
                                 <motion.div
@@ -133,14 +133,14 @@ const Skills = () => {
                                                 variants={item}
                                                 className="glass-panel p-4 rounded-xl flex items-center gap-3 group hover:bg-white/5 transition-all cursor-default"
                                             >
-                                                <div className="p-2 rounded-lg bg-white/5 text-secondary group-hover:text-white transition-colors">
+                                                <div className="p-2 rounded-lg bg-[var(--subtle-bg)] text-secondary group-hover:text-[var(--text-primary)] transition-colors">
                                                     <Icon size={18} />
                                                 </div>
                                                 <div>
-                                                    <p className="text-sm font-semibold tracking-tight leading-none mb-1 text-white/90 group-hover:text-white">
+                                                    <p className="text-sm font-semibold tracking-tight leading-none mb-1 text-[var(--text-primary)] opacity-90 group-hover:opacity-100">
                                                         {skill.name}
                                                     </p>
-                                                    <p className="text-[10px] text-secondary/60 leading-none">
+                                                    <p className="text-[10px] text-secondary opacity-60 leading-none">
                                                         {skill.level}
                                                     </p>
                                                 </div>

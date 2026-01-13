@@ -11,14 +11,14 @@ const Privacy = () => {
         return (
             <div className="container-custom pt-20 text-center">
                 <h1 className="text-2xl font-bold mb-4">Privacy Policy Not Found</h1>
-                <Link to="/work" className="text-secondary hover:text-white underline">Back to Work</Link>
+                <Link to="/work" className="text-secondary hover:text-[var(--text-primary)] underline">Back to Work</Link>
             </div>
         );
     }
 
     return (
         <div className="container-custom pt-10 pb-20">
-            <Link to={`/work/${project.id}`} className="inline-flex items-center gap-2 text-secondary hover:text-white mb-8 text-sm group transition-colors">
+            <Link to={`/work/${project.id}`} className="inline-flex items-center gap-2 text-secondary hover:text-[var(--text-primary)] mb-8 text-sm group transition-colors">
                 <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
                 Back to {project.title}
             </Link>

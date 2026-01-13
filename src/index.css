@@ -8,10 +8,35 @@
   --accent-glow: rgba(255, 255, 255, 0.08);
   --glass-bg: rgba(20, 20, 20, 0.6);
   --glass-border: rgba(255, 255, 255, 0.08);
+  --navbar-bg: #1a1a1a;
+  --gradient-color: #2a2a2a;
+  --subtle-bg: rgba(255, 255, 255, 0.05);
+  --subtle-border: rgba(255, 255, 255, 0.1);
+  --grad-start: #ffffff;
+  --grad-end: #a1a1aa;
+  --scrollbar-thumb: #333;
+  --scrollbar-thumb-hover: #444;
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-
   --ease-out: cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.light {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f4f4f5;
+  --text-primary: #09090b;
+  --text-secondary: #71717a;
+  --accent-glow: rgba(0, 0, 0, 0.05);
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --navbar-bg: #ffffff;
+  --gradient-color: #e4e4e7;
+  --subtle-bg: rgba(0, 0, 0, 0.05);
+  --subtle-border: rgba(0, 0, 0, 0.1);
+  --grad-start: #09090b;
+  --grad-end: #71717a;
+  --scrollbar-thumb: #d4d4d8;
+  --scrollbar-thumb-hover: #a1a1aa;
 }
 
 body {
@@ -22,6 +47,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Minimalist Utilities */
@@ -30,8 +56,9 @@ body {
 }
 
 .text-gradient {
-  background: linear-gradient(to right, #fff, #a1a1aa);
+  background: linear-gradient(to right, var(--grad-start), var(--grad-end));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -53,10 +80,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: var(--scrollbar-thumb);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #444;
+  background: var(--scrollbar-thumb-hover);
 }

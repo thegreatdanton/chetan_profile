@@ -18,7 +18,7 @@ const ScreenshotSlideshow = ({ images }) => {
     const prevSlide = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
 
     return (
-        <div className="relative max-w-sm mx-auto rounded-3xl overflow-hidden shadow-2xl border-[8px] border-[#1a1a1a] bg-[#111]">
+        <div className="relative max-w-sm mx-auto rounded-3xl overflow-hidden shadow-2xl border-[8px] border-[var(--navbar-bg)] bg-[var(--bg-secondary)]">
             <div className="aspect-[9/19] relative">
                 <AnimatePresence mode='wait'>
                     <motion.img
@@ -108,7 +108,7 @@ const Detail = () => {
                                         <li key={i} className="flex items-start gap-3 text-secondary text-sm">
                                             <span className="text-green-400 shrink-0 mt-1">✓</span>
                                             <span>
-                                                <strong className="text-white">{item.split(':')[0]}:</strong>
+                                                <strong className="text-[var(--text-primary)]">{item.split(':')[0]}:</strong>
                                                 {item.split(':')[1]}
                                             </span>
                                         </li>
@@ -125,8 +125,8 @@ const Detail = () => {
                             </h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 text-left">
                                 {project.features.map((feature, i) => (
-                                    <div key={i} className="glass-panel p-5 md:p-6 rounded-xl border-white/5 hover:bg-white/5 transition-colors">
-                                        <h3 className="font-medium text-white mb-2 text-lg flex items-center gap-2">
+                                    <div key={i} className="glass-panel p-5 md:p-6 rounded-xl border-[var(--subtle-border)] hover:bg-[var(--subtle-bg)] transition-colors">
+                                        <h3 className="font-medium text-[var(--text-primary)] mb-2 text-lg flex items-center gap-2">
                                             {feature.title}
                                         </h3>
                                         <p className="text-secondary text-sm leading-relaxed">{feature.desc}</p>
@@ -150,9 +150,9 @@ const Detail = () => {
                             </h2>
                             <div className="grid grid-cols-1 gap-3">
                                 {project.techStack.map((tech, i) => (
-                                    <div key={i} className="flex justify-between items-center py-2 border-b border-white/5 text-sm">
+                                    <div key={i} className="flex justify-between items-center py-2 border-b border-[var(--subtle-border)] text-sm">
                                         <span className="text-secondary font-medium">{tech.label}</span>
-                                        <span className="text-white">{tech.value}</span>
+                                        <span className="text-[var(--text-primary)]">{tech.value}</span>
                                     </div>
                                 ))}
                             </div>
@@ -180,7 +180,7 @@ const Detail = () => {
                         </h2>
                         <div className="flex flex-wrap gap-4">
                             {project.privacyPolicy && (
-                                <Link to={`/work/${project.id}/privacy`} className="px-6 py-3 rounded-xl glass-panel text-sm font-medium text-secondary hover:text-white hover:bg-white/10 transition-all">
+                                <Link to={`/work/${project.id}/privacy`} className="px-6 py-3 rounded-xl glass-panel text-sm font-medium text-secondary hover:text-[var(--text-primary)] hover:bg-[var(--subtle-bg)] transition-all">
                                     Privacy Policy
                                 </Link>
                             )}

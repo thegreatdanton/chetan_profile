@@ -25,7 +25,7 @@ const Work = () => {
                         transition={{ delay: index * 0.1, duration: 0.6 }}
                     >
                         <Link to={`/work/${project.id}`} className="block group">
-                            <div className="aspect-video bg-[#111] overflow-hidden rounded-xl border border-[rgba(255,255,255,0.05)] mb-4 relative">
+                            <div className="aspect-video bg-[var(--bg-secondary)] overflow-hidden rounded-xl border border-[var(--subtle-border)] mb-4 relative">
                                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10" />
                                 <img
                                     src={`${import.meta.env.BASE_URL}${project.image}`}

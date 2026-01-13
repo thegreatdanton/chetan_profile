@@ -43,13 +43,13 @@ const Certifications = () => {
                     <motion.div
                         key={index}
                         variants={item}
-                        className="glass-panel p-6 rounded-2xl group hover:border-white/20 transition-colors"
+                        className="glass-panel p-6 rounded-2xl group hover:border-[var(--text-secondary)] transition-colors"
                     >
                         <div className="flex justify-between items-start mb-4">
-                            <div className="p-3 rounded-xl bg-white/5 text-white/70 group-hover:text-white transition-colors">
+                            <div className="p-3 rounded-xl bg-[var(--subtle-bg)] text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors">
                                 <Award size={24} />
                             </div>
-                            <span className="text-[10px] uppercase tracking-widest text-secondary font-semibold bg-white/5 px-2 py-1 rounded">
+                            <span className="text-[10px] uppercase tracking-widest text-secondary font-semibold bg-[var(--subtle-bg)] px-2 py-1 rounded">
                                 {cert.issuer}
                             </span>
                         </div>
@@ -63,7 +63,7 @@ const Certifications = () => {
                                 <Calendar size={14} />
                                 <span>{cert.date}</span>
                                 {cert.expiry && (
-                                    <span className="text-white/20 ml-1 italic">
+                                    <span className="text-[var(--text-secondary)] opacity-30 ml-1 italic">
                                         (Exp: {cert.expiry})
                                     </span>
                                 )}
